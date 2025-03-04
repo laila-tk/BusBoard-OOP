@@ -14,11 +14,13 @@ namespace BusBoard
             config.AddTarget("File Logger", target); config.LoggingRules.Add(new LoggingRule("*", LogLevel.Debug, target));
             LogManager.Configuration = config;
 
-            string stopCode = UserInput.GetStopCode();
+            string postCode = UserInput.GetPostCode();
+            Console.WriteLine(postCode);
             try
             {
-                var busArrivals = await TflClient.GetBusArrivals(stopCode);
-                ArrivalManager.displayBusArrivals(busArrivals);
+                var (longitude, latitude)= await PostCodeClient.GetCoordinates(postCode);
+                Console.WriteLine(longitude,latitude);
+    
             }
             catch (Exception error)
             {

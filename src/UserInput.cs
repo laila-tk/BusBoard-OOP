@@ -2,14 +2,14 @@ namespace BusBoard
 {
     class UserInput
     {
-        public static string GetStopCode()
+        public static string GetPostCode()
         {
-            string stopCode;
+            string postCode;
             while (true)
             {
-                Console.WriteLine("Please enter a StopPointId:");
-                stopCode = Console.ReadLine();
-                if (string.IsNullOrEmpty(stopCode))
+                Console.WriteLine("Please enter a PostCode");
+                postCode = Console.ReadLine();
+                if (string.IsNullOrEmpty(postCode))
                 {
                     Console.WriteLine("StopPoint cant be empty. Please enter a valid ID.");
                 }
@@ -18,7 +18,7 @@ namespace BusBoard
                     break;
                 }
             }
-            return stopCode;
+            return postCode;
         }
 
     }
