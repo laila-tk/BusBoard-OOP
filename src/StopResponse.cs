@@ -1,6 +1,6 @@
 namespace BusBoard
 {
-    public class StopResponse
+    class StopResponse
     {
         public required List<StopPoint> StopPoints { get; set; }
     }

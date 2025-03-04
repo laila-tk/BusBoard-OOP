@@ -1,15 +1,14 @@
 namespace BusBoard
 {
-  public class Coordinates
+  class Coordinates
   {
-    public double Longitude { get; set; }
-    public double Latitude { get; set; }
+    public double Longitude {get;}
+    public double Latitude {get;}
 
     public Coordinates(double longitude, double latitude)
     {
       Longitude = longitude;
       Latitude = latitude;
-
     }
   }
 }

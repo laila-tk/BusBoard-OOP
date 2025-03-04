@@ -1,15 +1,15 @@
 namespace BusBoard
 {
 
-  public class PostCodeResponse
+  class PostCodeResponse
   {
     public required int Status { get; set; }
     public required Result Result { get; set; }
   }
 
-  public class Result
+  class Result
   {
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
+    public required double Latitude { get; set; }
+    public required double Longitude { get; set; }
   }
 }

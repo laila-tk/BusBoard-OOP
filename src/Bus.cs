@@ -1,6 +1,6 @@
 namespace BusBoard
 {
-    public class Bus
+    class Bus
     {
         public required string destinationName { get; set; }
         public required string lineName { get; set; }

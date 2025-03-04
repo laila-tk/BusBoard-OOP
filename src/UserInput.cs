@@ -1,6 +1,6 @@
 namespace BusBoard
 {
-    public class UserInput
+    class UserInput
     {
         public static string GetPostCode()
         {

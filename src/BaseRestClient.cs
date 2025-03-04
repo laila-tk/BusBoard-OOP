@@ -1,26 +1,27 @@
 using RestSharp;
 
-namespace BusBoard{
+namespace BusBoard
+{
 
-    public abstract class BaseRestClient
+    abstract class BaseRestClient
     {
         protected RestClient _restClient;
 
         protected BaseRestClient(string apiUrl)
         {
-           _restClient = new RestClient(apiUrl);
+            _restClient = new RestClient(apiUrl);
         }
 
-        protected async Task<T> GetResponse<T>(string endpoint)
+        protected async Task<T> GetResponse<T>(string endpointparameter)
         {
             try
             {
-                var request = new RestRequest(endpoint);
+                var request = new RestRequest(endpointparameter);
                 var response = await _restClient.GetAsync<T>(request);
 
-                if(response == null)
+                if (response == null)
                 {
-                    throw new Exception ($"API Error: Response is null");
+                    throw new Exception($"API Error: Unable to fetch response");
                 }
                 return response;
             }

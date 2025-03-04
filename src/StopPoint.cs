@@ -1,12 +1,14 @@
 namespace BusBoard
 {
-    public class StopPoint
+    class StopPoint
     {
-        public string NaptanId { get; set; }
+        public string NaptanId { get; }
+        public String CommonName{get;}
 
-        public StopPoint (string naptanid)
+        public StopPoint(string naptanid, string commonname)
         {
-           NaptanId = naptanid;
+            NaptanId = naptanid;
+            CommonName = commonname;
         }
 
     }
