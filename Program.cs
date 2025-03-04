@@ -4,7 +4,7 @@ using NLog.Targets;
 
 namespace BusBoard
 {
-    class BusBoard
+    public class BusBoard
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         public static async Task Main()
@@ -18,8 +18,12 @@ namespace BusBoard
             Console.WriteLine(postCode);
             try
             {
-                var (longitude, latitude)= await PostCodeClient.GetCoordinates(postCode);
-                Console.WriteLine(longitude,latitude);
+                PostCodeClient postcodeclient = new PostCodeClient();
+                Coordinates coordinates = await postcodeclient.GetCoordinates(postCode);
+                string coordinatesstring = $"{coordinates.Longitude},{coordinates.Latitude}";
+                TflClient tflclient = new TflClient();
+                var response = await tflclient.GetStopCodes(coordinatesstring);
+                Console.WriteLine(response);
     
             }
             catch (Exception error)

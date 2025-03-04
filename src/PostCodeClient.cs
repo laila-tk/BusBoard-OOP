@@ -8,19 +8,16 @@ namespace BusBoard
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         
-        public PostCodeClient(): base("https://api.postcodes.io/")
-        {
-
-        }
-
-        public async Task<(double Latitude, double Longitude)> GetCoordinates(string postcode)
+        public PostCodeClient(): base("https://api.postcodes.io/"){ } 
+        
+        public async Task<Coordinates> GetCoordinates(string postcode)
         {
             try
             {
                 string endpoint = $"/postcodes/{postcode}";
 
                 var response = await GetResponse<PostCodeResponse>(endpoint);
-                return (response.Result);
+                return new Coordinates(response.Result.Longitude, response.Result.Latitude);
             }
             
             catch (Exception error)

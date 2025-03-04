@@ -6,7 +6,7 @@ namespace BusBoard{
     {
         protected RestClient _restClient;
 
-        public void BaseClient(string apiUrl)
+        protected BaseRestClient(string apiUrl)
         {
            _restClient = new RestClient(apiUrl);
         }
@@ -18,15 +18,15 @@ namespace BusBoard{
                 var request = new RestRequest(endpoint);
                 var response = await _restClient.GetAsync<T>(request);
 
-            if(response.Data == null)
-            {
-                throw new Exception ($"API Error: {error}");
+                if(response == null)
+                {
+                    throw new Exception ($"API Error: Response is null");
+                }
+                return response;
             }
-            return response.Data;
-            }
-            catch (Exception ex)
+            catch (Exception error)
             {
-                throw;
+                throw new Exception($"Error: {error.Message}");
             }
         }
     }
