@@ -9,16 +9,16 @@ namespace BusBoard
     {
         private static readonly ILogger Logger = LogManager.GetCurrentClassLogger();
         public TflClient(): base("https://api.tfl.gov.uk/StopPoint"){ } 
-        public async Task<StopResponse> GetStopCodes(string coordinatesstring)
+        public async Task<List<StopPoint>> GetStopCodes(string coordinateString)
         {
             try
             {   
-                string [] parts = coordinatesstring.Split(",");
-                string longitude = parts[0];
-                string latitude = parts[1];
+                string [] parts = coordinateString.Split(",");
+                string longitude = parts[0].Trim();
+                string latitude = parts[1].Trim();
                 string endpoint= $"?lat={latitude}&lon={longitude}&stopTypes=NaptanPublicBusCoachTram";
                 var response = await GetResponse<StopResponse>(endpoint);
-                return response;
+                return response.StopPoints;
             }
             catch (Exception error)
             {
@@ -27,25 +27,20 @@ namespace BusBoard
             }
         }
 
-        // public static async Task<List<Bus>> GetBusArrivals(string stopCode)
-        // {
-        //     try
-        //     {
-        //         var request = new RestRequest($"{stopCode}/Arrivals");
-        //         Logger.Info($"Fetching arrival data for stopcode {stopCode}");
-        //         var arrivals = await stopPointClient.GetAsync<List<Bus>>(request);
-        //         if (arrivals?.Count == 0)
-        //         {
-        //             Logger.Info($"No Bus Arrivals for stopcode {stopCode}");
-        //         }
-        //         return arrivals;
-        //     }
-        //     catch (Exception error)
-        //     {
-        //         Logger.Error("Unable to fetch bus arrivals from TFL API data");
-        //         throw new Exception($"Error:{error.Message}");
-        //     }
-        // }
+        public async Task<List<Bus>> GetBusArrivals(string stopPoint)
+        {
+            try
+            {
+                string endpoint = $"{stopPoint}/Arrivals";
+                var response = await GetResponse<List<Bus>>(endpoint);
+                return response;
+            }
+            catch (Exception error)
+            {
+                Logger.Error("Unable to fetch bus arrivals from TFL API data");
+                throw new Exception($"Error:{error.Message}");
+            }
+        }
     }
 } 
 

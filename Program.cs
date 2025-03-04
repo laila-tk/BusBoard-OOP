@@ -20,11 +20,17 @@ namespace BusBoard
             {
                 PostCodeClient postcodeclient = new PostCodeClient();
                 Coordinates coordinates = await postcodeclient.GetCoordinates(postCode);
-                string coordinatesstring = $"{coordinates.Longitude},{coordinates.Latitude}";
+                string coordinateString = $"{coordinates.Longitude},{coordinates.Latitude}";
                 TflClient tflclient = new TflClient();
-                var response = await tflclient.GetStopCodes(coordinatesstring);
-                Console.WriteLine(response);
-    
+                List<StopPoint> stoppoints = await tflclient.GetStopCodes(coordinateString);
+                foreach (var stop in stoppoints)
+                {
+                    string stoppoint = "stop";
+                    List<Bus> arrivals = await tflclient.GetBusArrivals(stoppoint);
+                    ArrivalManager.DisplayBusArrivals(arrivals);
+                }
+
+
             }
             catch (Exception error)
             {
