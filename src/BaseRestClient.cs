@@ -27,7 +27,7 @@ namespace BusBoard
                     throw new Exception ($"API response from endpoint {endpoint} was unsuccesful");
                 }
 
-                Logger.Debug($"Retrived response from endpoint {endpoint}");
+                Logger.Debug($"Retrieved response from endpoint {endpoint}");
                 return response;
             }
 
