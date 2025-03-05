@@ -1,91 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
-      "NLog/5.4.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/NLog.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netstandard2.0/NLog.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "RestSharp/112.1.0": {
-        "type": "package",
-        "compile": {
-          "lib/net8.0/RestSharp.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/RestSharp.dll": {
-            "related": ".xml"
-          }
-        }
-      }
-    }
+    "net8.0": {}
   },
-  "libraries": {
-    "NLog/5.4.0": {
-      "sha512": "LwMcGSW3soF3/SL68rlJN3Eh3ktrAPycC3zZR/07OYBPraZUu0bygEC7kIN10lUQgMXT4s84Fi1chglGdGrQEg==",
-      "type": "package",
-      "path": "nlog/5.4.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "N.png",
-        "lib/net35/NLog.dll",
-        "lib/net35/NLog.xml",
-        "lib/net45/NLog.dll",
-        "lib/net45/NLog.xml",
-        "lib/net46/NLog.dll",
-        "lib/net46/NLog.xml",
-        "lib/netstandard1.3/NLog.dll",
-        "lib/netstandard1.3/NLog.xml",
-        "lib/netstandard1.5/NLog.dll",
-        "lib/netstandard1.5/NLog.xml",
-        "lib/netstandard2.0/NLog.dll",
-        "lib/netstandard2.0/NLog.xml",
-        "nlog.5.4.0.nupkg.sha512",
-        "nlog.nuspec"
-      ]
-    },
-    "RestSharp/112.1.0": {
-      "sha512": "bOUGNZqhhv/QeCXHTKEUil846yBjwWXpzPKjO67kFvaAOoF361z7jLY5BMnuZ6WD2WQRA750sNMcK7MSPCQ5Mg==",
-      "type": "package",
-      "path": "restsharp/112.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net471/RestSharp.dll",
-        "lib/net471/RestSharp.xml",
-        "lib/net48/RestSharp.dll",
-        "lib/net48/RestSharp.xml",
-        "lib/net6.0/RestSharp.dll",
-        "lib/net6.0/RestSharp.xml",
-        "lib/net7.0/RestSharp.dll",
-        "lib/net7.0/RestSharp.xml",
-        "lib/net8.0/RestSharp.dll",
-        "lib/net8.0/RestSharp.xml",
-        "lib/netstandard2.0/RestSharp.dll",
-        "lib/netstandard2.0/RestSharp.xml",
-        "restsharp.112.1.0.nupkg.sha512",
-        "restsharp.nuspec",
-        "restsharp.png"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0": [
-      "NLog >= 5.4.0",
-      "RestSharp >= 112.1.0"
-    ]
+    "net8.0": []
   },
   "packageFolders": {
     "C:\\Users\\LaiKha\\.nuget\\packages\\": {}
@@ -128,16 +48,6 @@
     "frameworks": {
       "net8.0": {
         "targetAlias": "net8.0",
-        "dependencies": {
-          "NLog": {
-            "target": "Package",
-            "version": "[5.4.0, )"
-          },
-          "RestSharp": {
-            "target": "Package",
-            "version": "[112.1.0, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",

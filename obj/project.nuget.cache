@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QFdROY37hJU=",
+  "dgSpecHash": "9XlSdGHNqCQ=",
   "success": true,
   "projectFilePath": "C:\\Users\\LaiKha\\Training\\BusboardOOP\\BusboardOOP.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\LaiKha\\.nuget\\packages\\nlog\\5.4.0\\nlog.5.4.0.nupkg.sha512",
-    "C:\\Users\\LaiKha\\.nuget\\packages\\restsharp\\112.1.0\\restsharp.112.1.0.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
