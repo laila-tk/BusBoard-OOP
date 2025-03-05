@@ -3,13 +3,13 @@ namespace BusBoard
 
   class PostCodeResponse
   {
-    public required int Status { get; set; }
-    public required Result Result { get; set; }
+    public required PostCodeResult Result { get; set; }
   }
 
-  class Result
+  class PostCodeResult
   {
-    public required double Latitude { get; set; }
     public required double Longitude { get; set; }
+    public required double Latitude { get; set; }
   }
+
 }

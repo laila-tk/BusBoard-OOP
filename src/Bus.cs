@@ -2,8 +2,8 @@ namespace BusBoard
 {
     class Bus
     {
-        public required string destinationName { get; set; }
-        public required string lineName { get; set; }
-        public required int timeToStation { get; set; }
+        public required string DestinationName { get; set; }
+        public required string LineName { get; set; }
+        public required int TimeToStation { get; set; }
     }
 }

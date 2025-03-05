@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BusboardOOP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+928c9c758f1cc8d8d15b47f810ed3a1d4d21db17")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4439046cbbd6bc8a9b547c010b90172a33b404e3")]
 [assembly: System.Reflection.AssemblyProductAttribute("BusboardOOP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BusboardOOP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
