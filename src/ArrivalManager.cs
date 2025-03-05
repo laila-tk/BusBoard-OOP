@@ -1,36 +1,37 @@
+using NLog;
+
 namespace BusBoard
 {
     class ArrivalManager
     {
-        private static List<Bus> SortBusArrivals(List<Bus> busArrivals)
-        {
-            return busArrivals.OrderBy(bus => bus.timeToStation).ToList();
-        }
-
-        private static List<Bus> GetFirstFiveArrivals(List<Bus> busArrivals)
-        {
-            return busArrivals.Take(5).ToList();
-        }
-
+        private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         public static void DisplayBusArrivals(List<Bus> busArrivals)
         {
-            var sortedArrivals = SortBusArrivals(busArrivals);
-            var firstFiveArrivals = GetFirstFiveArrivals(sortedArrivals);
-            int index = 1;
-            if (firstFiveArrivals.Count == 0)
+            try
             {
-                Console.WriteLine("There are no bus arrivals for the given stopcode");
-            }
-            else
-            {
-                foreach (var bus in firstFiveArrivals)
+                var sortedBusArrivals = busArrivals.OrderBy(bus => bus.TimeToStation).Take(5).ToList();
+
+                if (sortedBusArrivals.Count == 0)
+                {
+                    Console.WriteLine("There are no bus arrivals for the given stop");
+                    Logger.Warn("No bus arrivals found");
+                    throw new Exception("No bus arrivals found");
+                }
+
+                int index = 1;
+                foreach (var bus in sortedBusArrivals)
                 {
                     Console.WriteLine($"\nBus {index}");
-                    Console.WriteLine($"Destination: {bus.destinationName}");
-                    Console.WriteLine($"Route: {bus.lineName}");
-                    Console.WriteLine($"Time To Station: {bus.timeToStation / 60} min");
+                    Console.WriteLine($"Destination: {bus.DestinationName}");
+                    Console.WriteLine($"Route: {bus.LineName}");
+                    Console.WriteLine($"Time To Station: {bus.TimeToStation / 60} min");
                     index++;
                 }
+            }
+            catch (Exception error)
+            {
+                Logger.Error($"Unable to display bus arrivals: {error}");
+                throw new Exception($"Error displaying bus arrivals: {error}");
             }
         }
     }
